@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% from "include/_formhelpers.html" import render_field %}
+
+{% block content %}
+<div class="py-3">Not registered? <a href="/register">Register</a></div>
+<div class="content-section">
+  <div class="md-7">
+    <form method="POST" action="">
+      {{ form.hidden_tag() }}
+      {{ render_field(form.email) }}
+      {{ render_field(form.password) }}
+      <div>{{ form.remember() }} &nbsp; {{ form.remember.label }}</div>
+      <div>{{ form.submit(class="btn btn-primary") }}</div>
+    </form>
+  </div>
+</div>
+{% endblock %}

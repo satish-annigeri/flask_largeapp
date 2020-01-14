@@ -1,0 +1,13 @@
+{% macro render_field(formfield) %}
+<div class="form-group">
+    {{ formfield.label(class="form-control-label") }}
+    {% if formfield.errors %}
+        {{ formfield(class="form-control is-invalid")|safe }}
+        {% for error in formfield.errors %}
+            <span class="help-inline">{{ error }}</span>
+        {% endfor %}
+    {% else %}
+    {{ formfield(class="form-control is-valid")|safe }}
+    {% endif %}
+</div>
+{% endmacro %}
